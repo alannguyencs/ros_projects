@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<robot name="mira">
+    <material name="blue">
+        <color rgba="0 0 0.8 1"/>
+    </material>
+    <material name="red">
+        <color rgba="0.8 0 0 1"/>
+    </material>
+    <material name="green">
+        <color rgba="0 0.8 0 1"/>
+    </material>
+    <material name="grey">
+        <color rgba="0.75 0.75 0.75 1"/>
+    </material>
+    <material name="white">
+        <color rgba="1.0 1.0 1.0 1"/>
+    </material>
+    <material name="black">
+        <color rgba="0 0 0 1"/>
+    </material>
+    <material name="yellow">
+        <color rgba="1 1 0 1"/>
+    </material>
+
+    <!-- * * * Link Definitions * * * -->
+    <!-- * * * 
+    base_link
+    roll_M1_link: roll_joint with base_link
+    pitch_M2_link: pitch_joint with roll_M1_link
+    yaw_M3_link: pitch_joint with pitch_M2_link
+
+     * * * -->
+    
+    <link name="base_link">
+
+        <visual>
+            <origin rpy="0.0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <cylinder radius="0.06" length="0.09"/>
+            </geometry>
+            <material name="grey"/>
+        </visual>
+	</link>
+
+    <link name="roll_M1_link">
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <cylinder length="0.2" radius="0.01"/>
+            </geometry>
+            <material name="yellow"/>
+        </visual>
+    </link>
+
+    <joint name="roll_joint" type="revolute">
+    	<parent link="base_link"/>
+    	<child link="roll_M1_link"/>
+        <origin xyz="0.0023 0 -0.0005" rpy="0 0 0"/>
+        <limit lower="-0.2" upper="0.2" effort="0.1" velocity="0.005"/>
+        <axis xyz="1 0 0"/>
+	</joint>
+
+    <link name="pitch_M2_link">
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <cylinder length="0.3" radius="0.01"/>
+            </geometry>
+            <material name="green"/>
+        </visual>
+    </link>
+
+
+    <joint name="pitch_joint" type="revolute">
+    	<parent link="roll_M1_link"/>
+    	<child link="pitch_M2_link"/>
+    	<origin xyz="0 0 0" rpy="0 -1.5708 0"/>
+        <limit lower="0" upper="0.44" effort="0.1" velocity="0.005"/>
+        <axis xyz="0 1 0"/>
+	</joint>
+
+    <link name="yaw_M3_link">
+
+        <visual>
+            <origin rpy="0 0 0" xyz="0 0 0"/>
+            <geometry>
+                <cylinder length="0.5" radius="0.01"/>
+            </geometry>
+            <material name="blue"/>
+        </visual>
+    </link>
+
+    <joint name="yaw_joint" type="continuous">
+    	<parent link="pitch_M2_link"/>
+    	<child link="yaw_M3_link"/>
+        <origin xyz="0.01 0 0" rpy="0 1.5708 0"/>
+        <limit effort="0.1" velocity="0.01"/>
+        <axis xyz="0 0 1"/>
+	</joint>
+  
+
+  
+</robot>

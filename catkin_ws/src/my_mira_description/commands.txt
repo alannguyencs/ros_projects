@@ -1,0 +1,2 @@
+roslaunch my_mira_description urdf_visualize.launch model:='$(find my_mira_description)/urdf/mira_simple.urdf'
+roslaunch my_mira_description urdf_visualize.launch model:='$(find my_mira_description)/urdf/mira_geometric.urdf'

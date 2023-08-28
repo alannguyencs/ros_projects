@@ -1,0 +1,11 @@
+<!-- my_gazebo_world.launch -->
+
+<launch>
+    <!-- Start Gazebo with empty world -->
+    <arg name="world_file" default="$(find studying_gazebo)/worlds/demo_world.sdf"/>
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="world_name" value="$(arg world_file)"/>
+    </include>
+    <include file="$(find jackal_gazebo)/launch/spawn_jackal.launch">
+    </include>
+</launch>

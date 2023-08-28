@@ -1,0 +1,8 @@
+prefix=/home/alan/GoogleDrive/CAiRS/ros_projects/rosbot_ws/devel
+
+Name: rosbot_gazebo
+Description: Description of rosbot_gazebo
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

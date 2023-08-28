@@ -1,0 +1,8 @@
+prefix=/home/alan/GoogleDrive/CAiRS/ros_projects/catkin_ws/install
+
+Name: cpr_empty_gazebo
+Description: Description of cpr_empty_gazebo
+Version: 0.2.7
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

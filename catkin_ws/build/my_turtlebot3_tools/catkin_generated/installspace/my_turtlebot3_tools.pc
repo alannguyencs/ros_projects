@@ -1,0 +1,8 @@
+prefix=/home/alan/GoogleDrive/CAiRS/ros_projects/catkin_ws/install
+
+Name: my_turtlebot3_tools
+Description: Description of my_turtlebot3_tools
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
